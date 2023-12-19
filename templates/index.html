@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FEC Decoder - Smart India Hackathon 2023</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="h-screen flex items-center justify-center">
+
+    <img src="/static/background.jpg" class="h-full w-full absolute"/>
+
+    <form id="fecForm" class="bg-white bg-opacity-20 rounded-lg shadow-md backdrop-filter backdrop-blur-md border border-white p-4 w-72 text-center">
+        <h2 class="text-green-500">FEC Decoder</h2>
+        <label for="binaryInput" class="block mb-2 text-sm text-gray-500">Enter Binary String:</label>
+        <input type="text" id="binaryInput" placeholder="Enter binary string..." required
+            class="w-full px-4 py-2 mb-4 border rounded-md text-sm text-gray-700">
+
+        <label for="fecType" class="block mb-2 text-sm text-gray-500">Select FEC Type:</label>
+        <select id="fecType"
+            class="w-full px-4 py-2 mb-4 border rounded-md text-sm text-gray-700">
+            <option value="A">FEC Type A</option>
+            <option value="B">FEC Type B</option>
+            <option value="C">FEC Type C</option>
+        </select>
+
+        <button type="button"
+            class="bg-green-500 text-white px-5 py-2 border rounded-md cursor-pointer text-lg transition duration-300 hover:bg-green-700">
+            Submit
+        </button>
+    </form>
+
+    <div id="result" class="mt-4 text-lg text-gray-700"></div>
+
+    <script>
+        function decodeFEC() {
+            var binaryString = document.getElementById("binaryInput").value;
+            var selectedFEC = document.getElementById("fecType").value;
+            var fecType;
+
+            // Use the selected FEC type if available, else use decoding logic
+            if (selectedFEC) {
+                fecType = "FEC Type " + selectedFEC;
+            } else {
+                // FEC decoding logic
+                if (binaryString.startsWith("1010")) {
+                    fecType = "FEC Type A";
+                } else if (binaryString.startsWith("1100")) {
+                    fecType = "FEC Type B";
+                } else {
+                    fecType = "Unknown FEC Type";
+                }
+            }
+
+            // Display the result
+            document.getElementById("result").innerHTML = "<p class='text-green-500'>FEC Type: " + fecType + "</p>";
+        }
+    </script>
+</body>
+
+</html>
