@@ -4,59 +4,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FEC Decoder - Smart India Hackathon 2023</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>Satellite FEC</title>
+    <style>
+        .body {
+            background: #E8CBC0;
+            background: -webkit-linear-gradient(to right, #636FA4, #E8CBC0);
+            background: linear-gradient(to right, #636FA4, #E8CBC0);
+        }
+    </style>
 </head>
 
-<body class="h-screen flex items-center justify-center">
+<body>
+    <div class="bg-gradient-to-r from-purple-700 to-pink-300 min-h-screen flex items-center justify-center">
+        <div class="max-w-2xl p-8 bg-opacity-20 h-full w-full bg-purple-100 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border border-gray-100 rounded-lg" rounded shadow-lg">
+            <img src="/static/logo2.png" class="w-24 h-24"/>
+            <h1 class="text-4xl text-white font-bold mb-4">Welcome!</h1>
+            <p class="text-white mb-6">Problem Statement: Identification and Extraction of Forward Error Correction
+                (FEC) schemes of unknown demodulated signals</p>
+            <a href="/process" class="bg-blue-500 rounded-lg p-2 text-white">Get Started</a>
+        </div>
+    </div>
 
-    <img src="/static/bg.jpg" class="h-full w-full absolute" />
-
-    <form method="post" action="/" id="fecForm" enctype="multipart/form-data"
-        class="bg-white bg-opacity-20 rounded-lg shadow-md backdrop-filter backdrop-blur-md border border-white p-4 w-72 text-center">
-        <h2 class="text-green-500">FEC Decoder</h2>
-        <label for="binaryInput" class="block mb-2 text-sm text-gray-500">Upload file</label>
-        <input type="file" id="binaryInput" name="file" placeholder="Enter binary string..." required
-            class="w-full px-4 py-2 mb-4 border rounded-md text-sm text-gray-700"/>
-        <label for="fecType" class="block mb-2 text-sm text-gray-500">Select FEC Type:</label>
-        <select id="fecType" class="w-full px-4 py-2 mb-4 border rounded-md text-sm text-gray-700">
-            <option value="A">QSPK</option>
-            <option value="B">BSPK</option>
-            <option value="C">8SPk</option>
-        </select>
-
-        <button type="submit"
-            class="bg-blue-900 text-white px-5 py-2 border rounded-md cursor-pointer text-lg transition duration-300 hover:bg-blue-950">
-            Submit
-        </button>
-    </form>
-
-    <div id="result" class="mt-4 text-lg text-gray-700"></div>
-
-    <script>
-        function decodeFEC() {
-            var binaryString = document.getElementById("binaryInput").value;
-            var selectedFEC = document.getElementById("fecType").value;
-            var fecType;
-
-            // Use the selected FEC type if available, else use decoding logic
-            if (selectedFEC) {
-                fecType = "FEC Type " + selectedFEC;
-            } else {
-                // FEC decoding logic
-                if (binaryString.startsWith("1010")) {
-                    fecType = "FEC Type A";
-                } else if (binaryString.startsWith("1100")) {
-                    fecType = "FEC Type B";
-                } else {
-                    fecType = "Unknown FEC Type";
-                }
-            }
-
-            // Display the result
-            document.getElementById("result").innerHTML = "<p class='text-green-500'>FEC Type: " + fecType + "</p>";
-        }
-    </script>
 </body>
 
 </html>
