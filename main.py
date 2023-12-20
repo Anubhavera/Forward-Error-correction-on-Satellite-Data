@@ -21,7 +21,10 @@ def home():
         title = f.filename
         f.save(f.filename)
         print(title)
-        class_names = ["BCH", "HAMMING", "Convolutional", "Turbo"]
+
+        if select_val=="BPSK":
+            class_names = ["BCH", "HAMMING", "Convolutional", "Turbo"]
+        
 
         with open(title, "r+") as f:
             result = f.readlines()
