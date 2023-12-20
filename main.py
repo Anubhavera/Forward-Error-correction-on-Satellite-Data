@@ -1,10 +1,11 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, jsonify, render_template, request, redirect
 import keras
 import tensorflow as tf
 app = Flask(__name__)
 import numpy as np
 global model
 import matplotlib.pyplot as plt
+import json
 
 def bpsk_preprocessing(title):
     with open(title, "r+") as f:
@@ -72,15 +73,15 @@ def home():
         print(title)
 
         if select_val=="BPSK":
-            class_names = ["BCH", "HAMMING", "Convolutional", "Turbo"]
+            class_names = ["bch", "hamming", "conv", "turbo"]
             model = tf.keras.models.load_model("best.h5")
             final_data = bpsk_preprocessing(title)
         elif select_val=="QPSK":
-            class_names = ["BCH", "CONV", "TPC"]
+            class_names = ["bch", "conv", "tpc"]
             model = tf.keras.models.load_model("model_8psk.h5")
             final_data = qpsk_8psk_preprocessing(title)
         else:
-            class_names = ["Conv", "TPC", "BCH"]
+            class_names = ["conv", "tpc", "bch"]
             model = tf.keras.models.load_model("model_qpsk92acc\content\model_qpsk_92acc")
             final_data = qpsk_8psk_preprocessing(title)
 
@@ -97,19 +98,21 @@ def home():
             probab[i] = round(pred[0][a]*100, 1)
             a+=1
         
-        keys = probab.keys()
-        values = probab.values()
-        plt.bar(keys, values)
-        plt.ylabel("Accuracy (%)")
-        plt.xlabel("FEC Schemes")
-        plt.savefig("default.png")
+        
+
+        # keys = probab.keys()
+        # values = probab.values()
+        # plt.bar(keys, values)
+        # plt.ylabel("Accuracy (%)")
+        # plt.xlabel("FEC Schemes")
+        # plt.savefig("default.png")
 
         predictions = [class_names[np.argmax(x)] for x in pred]
         val = "All derived classes: "
         with open("result.txt", "w+") as file:
             file.write(str(predictions))
 
-        return render_template("process.html", value=str(predictions), value2=str(probab))  
+        return redirect("/process?preds=" + str(predictions) + "&probab=" + str(probab))  
     return render_template("process.html")
 
 @app.route('/result', methods=['GET','POST'])
