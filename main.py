@@ -3,10 +3,9 @@ import keras
 import tensorflow as tf
 app = Flask(__name__)
 import numpy as np
-global prediction
+global model
 
 model = tf.keras.models.load_model("best.h5")
-class_names = ["BCH", "HAMMING", "Convolutional", "Turbo"]
 
 @app.route('/', methods=['GET'])
 def landing():
@@ -21,14 +20,48 @@ def home():
         f = request.files['file']
         title = f.filename
         f.save(f.filename)
-        data = np.random.randint(0, 2, 856)
-        data = np.array([[x] for x in data[:774]])
-        data = np.expand_dims(data, axis=0)
+        print(title)
+        class_names = ["BCH", "HAMMING", "Convolutional", "Turbo"]
 
-        pred = model.predict(data)
-        prediction = class_names[np.argmax(pred[0])]
-        return render_template("landing.html", value=prediction)    
-    return render_template("landing.html")
+        with open(title, "r+") as f:
+            result = f.readlines()
+
+        val = []
+        for i in result:
+            val.append(i[:-1])
+
+        t = ""
+        for i in range(len(val)):
+            if len(val[i])<774:
+                t = val[i]
+                for j in range(abs(774-len(val[i]))):
+                    t+="0"
+                val[i] = t
+            if len(val[i])>774:
+                val[i] = val[i][:774]
+
+
+        x_pred = []
+        for i in val:
+            x_pred.append(list(i))
+
+        final_data=[]
+        for i in x_pred:
+            final_data.append([[float(x)] for x in i])
+
+        final_data = np.array(final_data)
+        print(final_data.shape)
+    
+        pred = model.predict(final_data)
+        print("*"*12)
+        print(pred)
+        predictions = [class_names[np.argmax(x)] for x in pred]
+        val = "All derived classes: "
+        with open("result.txt", "w+") as file:
+            file.write(str(predictions))
+
+        return render_template("process.html", value=str(predictions), value2=val)  
+    return render_template("process.html")
 
 @app.route('/result', methods=['GET','POST'])
 def result():

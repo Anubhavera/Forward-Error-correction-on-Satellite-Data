@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FEC Decoder - Smart India Hackathon 2023</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        #submit_button {
+            padding: 0.8em 1.8em;
+            border: 2px solid #17C3B2;
+            position: relative;
+            overflow: hidden;
+            background-color: transparent;
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 16px;
+            transition: .3s;
+            z-index: 1;
+            font-family: inherit;
+            color: #17C3B2;
+        }
+
+        #submit_button::before {
+            content: '';
+            width: 0;
+            height: 300%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(45deg);
+            background: #17C3B2;
+            transition: .5s ease;
+            display: block;
+            z-index: -1;
+        }
+
+        #submit_button:hover::before {
+            width: 105%;
+        }
+
+        #submit_button:hover {
+            color: #111;
+        }
+    </style>
+</head>
+
+
+<body class="h-screen flex items-center justify-center">
+
+    <div class="bg-red-200 h-full w-full flex flex-col items-center justify-center">
+
+        <!-- <img src="/static/bg.jpg" class="h-full w-full absolute" /> -->
+
+        <div class="grid grid-cols-2 gap-4">
+
+        </div>
+
+
+        <form method="post" action="/process" id="fecForm" enctype="multipart/form-data"
+            class="bg-white bg-opacity-20 rounded-lg shadow-md backdrop-filter backdrop-blur-md border border-white p-4 w-72 text-center">
+            <h2 class="text-white text-3xl p-2 font-bold">FEC Decoder</h2>
+            <label for="binaryInput" class="block mb-2 text-lg text-white">Upload file</label>
+            <input type="file" id="binaryInput" name="file" placeholder="Enter binary string..." required
+                class="w-full px-4 py-2 mb-4 border rounded-md text-sm text-gray-700" />
+            <label for="fecType" class="block mb-2 text-lg text-white">Select FEC Type:</label>
+            <select id="fecType" name="modulator_type"
+                class="w-full px-4 py-2 mb-4 border rounded-md text-sm text-gray-700">
+                <option selected="selected">--Select One--</option>
+                <option value="QPSK">QPSK</option>
+                <option value="BPSK">BPSK</option>
+                <option value="8PSK">8PSk</option>
+            </select>
+
+            <button type="submit" id="submit_button"
+                class="bg-blue-900 text-white px-5 py-2 border rounded-md cursor-pointer text-lg transition duration-300 hover:bg-blue-950">Submit</button>
+        </form>
+
+        <div class="flex justify-bottom items-end mt-10">
+            <h1 class="text-4xl font-serif text-white">{{value2}}</h1>
+            <h1 class="text-4xl font-serif text-white">{{value}}</h1>
+        </div>
+    </div>
+
+
+    <script>
+        function decodeFEC() {
+            var binaryString = document.getElementById("binaryInput").value;
+            var selectedFEC = document.getElementById("fecType").value;
+            var fecType;
+
+            // Use the selected FEC type if available, else use decoding logic
+            if (selectedFEC) {
+                fecType = "FEC Type " + selectedFEC;
+            } else {
+                // FEC decoding logic
+                if (binaryString.startsWith("1010")) {
+                    fecType = "FEC Type A";
+                } else if (binaryString.startsWith("1100")) {
+                    fecType = "FEC Type B";
+                } else {
+                    fecType = "Unknown FEC Type";
+                }
+            }
+
+            // Display the result
+            document.getElementById("result").innerHTML = "<p class='text-green-500'>FEC Type: " + fecType + "</p>";
+        }
+
+        const onSubmit = () => {
+            const result_tag2 = document.getElementById("result_tag2");
+            const result_tag = document.getElementById("result_tag");
+            result_tag.innerHTML = "All derived classes: ";
+        }
+    </script>
+</body>
+
+</html>
