@@ -54,3 +54,17 @@
 ['Convolutional']{'BCH': 64.2, 'Convolutional': 78.0, 'TPC': 0.0}
 ['TPC']{'BCH': 10.4, 'Convolutional': 0.0, 'TPC': 100.0}
 ['BCH']{'Convolutional': 0.0, 'TPC': 24.2, 'BCH': 95.1}
+['Convolutional']{'BCH': 69.6, 'Convolutional': 86.0, 'TPC': 0.0}
+['BCH', 'BCH']{'Convolutional': 72.7, 'TPC': 0.0, 'BCH': 92.2}
+['BCH']{'Convolutional': 0.0, 'TPC': 32.8, 'BCH': 50.1}
+['BCH']{'Convolutional': 0.2, 'TPC': 7.8, 'BCH': 91.2}
+['BCH']{'Convolutional': 0.2, 'TPC': 7.8, 'BCH': 91.2}
+['BCH']{'Convolutional': 0.2, 'TPC': 7.8, 'BCH': 91.2}
+['Convolutional']{'BCH': 55.2, 'Convolutional': 82.2, 'TPC': 0.0}
+['Convolutional']{'BCH': 55.2, 'Convolutional': 82.2, 'TPC': 0.0}
+['TPC']{'BCH': 10.4, 'Convolutional': 0.0, 'TPC': 100.0}
+['TPC']{'BCH': 10.4, 'Convolutional': 0.0, 'TPC': 100.0}
+['Convolutional']{'BCH': 0.0, 'Hamming': 99.9, 'Convolutional': 100.0, 'Turbo': 0.0, 'LDPC': 0.0}
+['TPC']{'BCH': 11.6, 'Convolutional': 0.0, 'TPC': 99.9}
+['Convolutional']{'BCH': 55.2, 'Convolutional': 82.2, 'TPC': 0.0}
+['Convolutional']{'BCH': 55.2, 'Convolutional': 82.2, 'TPC': 0.0}
