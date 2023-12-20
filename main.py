@@ -10,6 +10,7 @@ import json
 def bpsk_preprocessing(title):
     with open(title, "r+") as f:
         result = f.readlines()
+
     val = []
     for i in result:
         val.append(i[:-1])
@@ -55,7 +56,14 @@ def qpsk_8psk_preprocessing(title):
     final_data = np.array(final_data)
     return final_data
 
+def ping(val):
+    data = val.split(",")
+    dat = [[x] for x in data]
+    x_data = np.array(dat)
+    x_data_ = np.expand_dims(x_data, axis=0)
+    return x_data_
 
+        
 
 @app.route('/', methods=['GET'])
 def landing():
@@ -73,17 +81,18 @@ def home():
         print(title)
 
         if select_val=="BPSK":
-            class_names = ["bch", "hamming", "conv", "turbo"]
-            model = tf.keras.models.load_model("best.h5")
+            class_names = ["BCH", "Hamming", "Convolutional", "Turbo", "LDPC"]
+            model = tf.keras.models.load_model("model_ldpc_within_bpsk.h5")
             final_data = bpsk_preprocessing(title)
         elif select_val=="QPSK":
-            class_names = ["bch", "conv", "tpc"]
+            class_names = ["BCH", "Convolutional", "TPC"]
             model = tf.keras.models.load_model("model_8psk.h5")
             final_data = qpsk_8psk_preprocessing(title)
         else:
-            class_names = ["conv", "tpc", "bch"]
+            class_names = ["Convolutional", "TPC", "BCH"]
             model = tf.keras.models.load_model("model_qpsk92acc\content\model_qpsk_92acc")
             final_data = qpsk_8psk_preprocessing(title)
+
 
 
         print(final_data.shape)
@@ -112,12 +121,21 @@ def home():
         with open("result.txt", "w+") as file:
             file.write(str(predictions))
 
-        return redirect("/process?preds=" + str(predictions) + "&probab=" + str(probab))  
+        f = open("static/history.txt", "a")
+        f.writelines(str(predictions) + str(probab) + "\n")
+        f.close()
+
+        # return redirect("/process?preds=" + str(predictions) + "&probab=" + str(probab))
+        return render_template("process.html", value=str(predictions[0]), value2=probab)
     return render_template("process.html")
 
 @app.route('/result', methods=['GET','POST'])
 def result():
     return render_template('result.html')
+
+@app.route('/history', methods=['GET'])
+def history():
+    return render_template('history.html')
 
 if __name__ == "__main__":
     app.run(debug=True)

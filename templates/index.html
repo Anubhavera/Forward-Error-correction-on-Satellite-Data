@@ -326,12 +326,12 @@
 
 </head>
 
-<body>
+<body class="bg-gray-100">
     <header class="text-gray-600 body-font">
         <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-            <button class="btn-17">
-                <span class="text-container">
-                    <span class="text">FORWARD ERROR CORRECTION</span>
+            <button class="btn-17 sm:px-5">
+                <span class="text-container ">
+                    <span class="text">FEC-eye</span>
                 </span>
             </button>
             <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
@@ -341,17 +341,17 @@
     </header>
     <div class="top-0 mt-5">
         <div class="flex justify-center">
-            <h1 class="text-black text-4xl font-bold pb-2">Detect Signals in seconds</h1>
+            <h1 class="text-black text-4xl font-bold pb-1">Enabling next-generation signal analysis</h1>
         </div>
         <div class="flex justify-center">
-            <h1
-                class="text-3xl font-bold bg-gradient-to-r px-2 py-2 from-indigo-500 via-purple-500 to-pink-500 text-transparent bg-clip-text">
-                Our Solution</h1>
+            <h1 class="bg-gradient-to-r px-2 py-2 from-indigo-500 via-purple-500 to-pink-500 text-transparent bg-clip-text text-4xl font-bold pb-2 pb-5">Accurate and efficient</h1>
+
         </div>
         <div class="flex justify-center">
-            <p class="px-40 text-black text-2xl font-bold text-center">Developing algorithms for FEC parameter identification enhances
-                communication
-                system reliability in situations where the scheme is not explicitly known.</p>
+            <!-- <h1 class="text-3xl font-bold bg-gradient-to-r px-2 py-2 from-indigo-500 via-purple-500 to-pink-500 text-transparent bg-clip-text">Our Solution</h1> -->
+        </div>
+        <div class="flex justify-center">
+            <p class="px-80 text-black text-2xl font-bold text-center pb-5">Demodulated data can be a cryptic puzzle. Our solution expertly identifies the underlying FEC scheme, ensuring clean and reliable data everytime.</p>
         </div>
     </div>
     <div class="justify-center mr-16 flex">
@@ -376,9 +376,13 @@
 
     </div>
 
-    <div class="flex justify-evenly mt-16">
+    <div class="flex justify-center mt-16">
+        <p class="px-40 text-black text-4xl font-bold text-center">Modulation Types</p>
+    </div>
+
+    <div class="flex justify-evenly mt-8">
         <div
-            class="w-32 h-32 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 rounded-full flex items-center justify-center">
+            class="w-32 h-32 bg-gradient-to-r from-gray-700 via-gray-900 to-black rounded-full flex items-center justify-center">
             <div class="absolute top-0 w-full text-center">
                 <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg">
@@ -392,7 +396,7 @@
         </div>
 
         <div
-            class="w-32 h-32 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 rounded-full flex items-center justify-center">
+            class="w-32 h-32 bg-gradient-to-t from-gray-700 via-gray-900 to-black rounded-full flex items-center justify-center">
             <div class="absolute top-0 w-full text-center">
                 <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg">
@@ -406,7 +410,7 @@
         </div>
 
         <div
-            class="w-32 h-32 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 rounded-full flex items-center justify-center">
+            class="w-32 h-32 bg-gradient-to-l from-gray-700 via-gray-900 to-black rounded-full flex items-center justify-center">
             <div class="absolute top-0 w-full text-center">
                 <!-- Icon at the top center -->
                 <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -421,68 +425,72 @@
         </div>
     </div>
 
-    <div class="flex justify-evenly mt-16">
-        <div class="max-w-xs w-36 bg-pink-200 shadow-lg rounded-lg overflow-hidden">
+    <div class="flex justify-center mt-16">
+        <p class="px-40 text-black text-4xl font-bold text-center mt-16">FEC Schemes</p>
+    </div>
+
+    <div class="flex justify-evenly m-8">
+        <div class="max-w-xs w-52 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-gray-900 to-gray-600 bg-gradient-to-r shadow-lg rounded-lg overflow-hidden">
             <div class="p-4">
                 <div class="flex items-center justify-center mb-4">
                     <!-- Icon at the top center -->
-                    <img class="w-8 h-8" src="/static/bch.png" />
+                    <img class="w-16 h-16" src="/static/coding.png" />
                 </div>
                 <div class="text-center">
                     <!-- Icon name in the middle -->
-                    <p class="text-lg font-semibold">BCH</p>
+                    <p class="text-3xl font-semibold text-white">BCH</p>
                 </div>
             </div>
         </div>
 
-        <div class="max-w-xs bg-pink-200 w-36 shadow-lg rounded-lg overflow-hidden">
+        <div class="max-w-xs bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-gray-900 to-gray-600 bg-gradient-to-r w-52 shadow-lg rounded-lg overflow-hidden">
             <div class="p-4">
                 <div class="flex items-center justify-center mb-4">
                     <!-- Icon at the top center -->
-                    <img class="w-8 h-8" src="/static/turbo.png" />
+                    <img class="w-16 h-16" src="/static/coding23.jpg" />
                 </div>
                 <div class="text-center">
                     <!-- Icon name in the middle -->
-                    <p class="text-lg font-semibold">Turbo</p>
+                    <p class="text-3xl text-white font-semibold">Turbo</p>
                 </div>
             </div>
         </div>
 
-        <div class="max-w-xs bg-pink-200 w-36 shadow-lg rounded-lg overflow-hidden">
+        <div class="max-w-xs bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-gray-900 to-gray-600 bg-gradient-to-r w-72 shadow-lg rounded-lg overflow-hidden">
             <div class="p-4">
                 <div class="flex items-center justify-center mb-4">
                     <!-- Icon at the top center -->
-                    <img class="w-8 h-8" src="/static/convulational.png" />
+                    <img class="w-16 h-16" src="/static/convulational.png" />
                 </div>
                 <div class="text-center">
                     <!-- Icon name in the middle -->
-                    <p class="text-lg font-semibold">Convolutional</p>
+                    <p class="text-3xl text-white font-semibold">Convolutional</p>
                 </div>
             </div>
         </div>
 
-        <div class="max-w-xs bg-pink-200 w-36 shadow-lg rounded-lg overflow-hidden">
+        <div class="max-w-xs bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-gray-900 to-gray-600 bg-gradient-to-r w-52 shadow-lg rounded-lg overflow-hidden">
             <div class="p-4">
                 <div class="flex items-center justify-center mb-4">
                     <!-- Icon at the top center -->
-                    <img class="w-8 h-8" src="/static/hamming.png" />
+                    <img class="w-16 h-16" src="/static/hamming.png" />
                 </div>
                 <div class="text-center">
                     <!-- Icon name in the middle -->
-                    <p class="text-lg font-semibold">Hamming</p>
+                    <p class="text-3xl text-white font-semibold">Hamming</p>
                 </div>
             </div>
         </div>
 
-        <div class="max-w-xs bg-pink-200 w-36 shadow-lg rounded-lg overflow-hidden">
+        <div class="max-w-xs bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-gray-900 to-gray-600 bg-gradient-to-r w-52 shadow-lg rounded-lg overflow-hidden">
             <div class="p-4">
                 <div class="flex items-center justify-center mb-4">
                     <!-- Icon at the top center -->
-                    <img class="h-8 w-8" src="/static/tpc.png" />
+                    <img class="h-16 w-16" src="/static/tpc.png">
                 </div>
                 <div class="text-center">
                     <!-- Icon name in the middle -->
-                    <p class="text-lg font-semibold">TPC</p>
+                    <p class="text-3xl text-white font-semibold">TPC</p>
                 </div>
             </div>
         </div>
@@ -492,72 +500,60 @@
         <div class="container px-5 py-24 mx-auto">
             <div class="flex flex-col text-center w-full mb-20">
                 <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Our Team</h1>
-                <p class="lg:w-2/3 mx-auto leading-relaxed text-base">We are team MONOLITH finalists of SIH2023
+                <p class="lg:w-2/3 mx-auto leading-relaxed text-base font-bold">We are team MONOLITH finalists of SIH2023
                 </p>
             </div>
             <div class="flex flex-wrap -m-2">
                 <div class="p-2 lg:w-1/3 md:w-1/2 w-full">
                     <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-                        <img alt="team"
-                            class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4"
-                            src="https://dummyimage.com/80x80">
+                   
                         <div class="flex-grow">
-                            <h2 class="text-gray-900 title-font font-medium">Yuvraj Singh (Team Leader)</h2>
+                            <h2 class="text-gray-900 title-font font-bold">Yuvraj Singh (Team Leader)</h2>
                             <p class="text-gray-500">Matlab | Simulink</p>
                         </div>
                     </div>
                 </div>
                 <div class="p-2 lg:w-1/3 md:w-1/2 w-full">
                     <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-                        <img alt="team"
-                            class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4"
-                            src="https://dummyimage.com/84x84">
+                       
                         <div class="flex-grow">
-                            <h2 class="text-gray-900 title-font font-medium">Vishwajeet Panda</h2>
+                            <h2 class="text-gray-900 title-font font-bold">Vishwajeet Panda</h2>
                             <p class="text-gray-500">Data Scienctist</p>
                         </div>
                     </div>
                 </div>
                 <div class="p-2 lg:w-1/3 md:w-1/2 w-full">
                     <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-                        <img alt="team"
-                            class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4"
-                            src="https://dummyimage.com/88x88">
+                        
                         <div class="flex-grow">
-                            <h2 class="text-gray-900 title-font font-medium">Utkarsh Pundeer</h2>
+                            <h2 class="text-gray-900 title-font font-bold">Utkarsh Pundeer</h2>
                             <p class="text-gray-500">Front-End</p>
                         </div>
                     </div>
                 </div>
                 <div class="p-2 lg:w-1/3 md:w-1/2 w-full">
                     <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-                        <img alt="team"
-                            class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4"
-                            src="https://dummyimage.com/90x90">
+                       
                         <div class="flex-grow">
-                            <h2 class="text-gray-900 title-font font-medium">Anubhav Hooda</h2>
+                            <h2 class="text-gray-900 title-font font-bold">Anubhav Hooda</h2>
                             <p class="text-gray-500">DevOps</p>
                         </div>
                     </div>
                 </div>
                 <div class="p-2 lg:w-1/3 md:w-1/2 w-full">
                     <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-                        <img alt="team"
-                            class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4"
-                            src="https://dummyimage.com/94x94">
+                      
                         <div class="flex-grow">
-                            <h2 class="text-gray-900 title-font font-medium">Aman Kumar</h2>
+                            <h2 class="text-gray-900 title-font font-bold">Aman Kumar</h2>
                             <p class="text-gray-500">Front-End</p>
                         </div>
                     </div>
                 </div>
                 <div class="p-2 lg:w-1/3 md:w-1/2 w-full">
                     <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-                        <img alt="team"
-                            class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4"
-                            src="https://dummyimage.com/98x98">
+                      
                         <div class="flex-grow">
-                            <h2 class="text-gray-900 title-font font-medium">Namreen Habib</h2>
+                            <h2 class="text-gray-900 title-font font-bold">Namreen Habib</h2>
                             <p class="text-gray-500">UI/UX</p>
                         </div>
                     </div>
