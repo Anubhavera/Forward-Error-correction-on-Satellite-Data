@@ -35,6 +35,7 @@ def bpsk_preprocessing(title):
 def qpsk_8psk_preprocessing(title):
     with open(title, "r+") as f:
         result = f.readlines()
+
     val = []
     for i in result:
         val.append(i[:-1])
@@ -80,6 +81,8 @@ def home():
         f.save(f.filename)
         print(title)
 
+
+
         if select_val=="BPSK":
             class_names = ["BCH", "Hamming", "Convolutional", "Turbo", "LDPC"]
             model = tf.keras.models.load_model("model_ldpc_within_bpsk.h5")
@@ -122,6 +125,7 @@ def home():
             file.write(str(predictions))
 
         f = open("static/history.txt", "a")
+        f.writelines("\n")
         f.writelines(str(predictions) + str(probab) + "\n")
         f.close()
 
